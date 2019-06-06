@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>Weather App</title>
+      <!-- ======================== The Stylesheet of the website ============================ -->
+      <link rel="stylesheet" href="style.css">
+      <!-- ======================== All the Online version of the Script files ============================ -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://gitcdn.link/cdn/darkskyapp/skycons/master/skycons.js"></script>
+      <!-- ======================== Font Awesome Icons ============================ -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   </head>
+   <body onload="startTime()">
+      <div class="container">
+         <div class="iphone-container">
+            <div class="svg-iphone">
+               <!-- ======================== SVG IMAGE============================ -->
+               <!--?xml version="1.0" encoding="utf-8"?-->
+               <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="316px" height="640px" viewBox="0 0 316 640" enable-background="new 0 0 316 640" xml:space="preserve">
+                  <g>
+                     <defs>
+                        <path id="SVGID_1_" d="M0,29.997C0,13.43,13.427,0,29.996,0h256.009C302.57,0,316,13.441,316,29.997v580.006
+                           C316,626.57,302.573,640,286.004,640H29.996C13.429,640,0,626.559,0,610.003V29.997z" />
+                     </defs>
+                     <clipPath id="SVGID_2_">
+                        <use xlink:href="#SVGID_1_" overflow="visible" />
+                     </clipPath>
+                     <path clip-path="url(#SVGID_2_)" fill="none" class="outline-one" stroke="#ffffff" stroke-width="8" stroke-miterlimit="10" d="M0,29.997
+                        C0,13.43,13.427,0,29.996,0h256.009C302.57,0,316,13.441,316,29.997v580.006C316,626.57,302.573,640,286.004,640H29.996
+                        C13.429,640,0,626.559,0,610.003V29.997z" />
+                  </g>
+                  <g>
+                     <defs>
+                        <path id="SVGID_3_" d="M13,74.01c0-2.767,2.229-5.01,5.003-5.01h279.994c2.763,0,5.003,2.229,5.003,5.01v489.981
+                           c0,2.767-2.229,5.009-5.003,5.009H18.003C15.24,569,13,566.771,13,563.991V74.01z" />
+                     </defs>
+                     <clipPath id="SVGID_4_">
+                        <use xlink:href="#SVGID_3_" overflow="visible" />
+                     </clipPath>
+                     <path clip-path="url(#SVGID_4_)" fill="none" class="outline-two" stroke="#ffffff" stroke-width="8" stroke-miterlimit="10" d="M13,74.009
+                        C13,71.243,15.229,69,18.003,69h279.994c2.763,0,5.003,2.229,5.003,5.009V563.99c0,2.767-2.229,5.01-5.003,5.01H18.003
+                        C15.24,569,13,566.771,13,563.99V74.009z" />
+                  </g>
+                  <line fill="none" class="outline-line" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="138" y1="37.684" x2="178" y2="37.684" />
+               </svg>
+               <!-- ======================== END SVG IMAGE ============================ -->
+            </div>
+            <div id="section1">
+               <!-- ======================== START OF FRONT SCREEN ============================ -->
+               <div class="iphone">
+                  <div class="iphone-body">
+                     <div class="screen">
+                        <canvas id="canvas"> </canvas>
+                        <div class="row">
+                           <div class="column">
+                              <div class="circles">
+                                 <div class="square"></div>
+                                 <div class="square">&nbsp;</div>
+                                 <div class="square">&nbsp;</div>
+                                 <div class="square">&nbsp;</div>
+                                 <div class="square">&nbsp;</div>
+                                 <p class="network">O2-UK</p>
+                                 <!-- ======================== START OF WIFI ICON============================ -->
+                                    <svg class="wifi" viewBox="0 0 40 32">
+                                       <path d="M17.98 28.12c0-1.1.9-2.02 2.02-2.02s2.02.9 2.02 2.02-.9 2.02-2.02 2.02-2.02-.9-2.02-2.02" />
+                                       <path d="M20 18.02c3.34 0 6.37 1.36 8.57 3.55l-2.86 2.86c-1.45-1.46-3.47-2.37-5.7-2.37s-4.25.9-5.7 2.37l-2.87-2.86c2.2-2.2 5.23-3.55 8.57-3.55" />
+                                       <path d="M5.7 15.86c3.83-3.82 8.9-5.92 14.3-5.92s10.47 2.1 14.3 5.92l-2.87 2.85C28.38 15.67 24.33 14 20 14s-8.38 1.68-11.43 4.73L5.7 15.87" />
+                                       <path d="M31 4.08c3.38 1.43 6.4 3.47 9 6.06L37.14 13C32.56 8.42 26.48 5.9 20 5.9S7.44 8.42 2.86 13L0 10.14c2.6-2.6 5.62-4.63 9-6.06 3.48-1.47 7.18-2.22 11-2.22s7.52.74 11 2.22" />
+                                    </svg>
+									<!-- ======================== END OF WIFI ICON============================ -->
+                              </div>
+                           </div>
+                           <div class="column"> <i class="fa fa-lock"></i> </div>
+                           <div class="column">
+                              <div class="icons">
+                                 <i class="fa fa-location-arrow"></i>
+                                 <i class="fa fa-bluetooth-b"></i>
+                              </div>
+							  <!-- ======================== START OF BATTERY ICON============================ -->
+                           <div class="fa-stack fa-1x battery battery-drain">
+  <i class="fa fa-stack-1x fa-battery-0"></i>
+  <i class="fa fa-stack-1x fa-battery-1"></i>
+  <i class="fa fa-stack-1x fa-battery-2"></i>
+  <i class="fa fa-stack-1x fa-battery-3"></i>
+  <i class="fa fa-stack-1x fa-battery-4"></i>
+</div>
+  <!-- ======================== END OF BATTERY ICON============================ -->
+                           </div>
+                        </div>
+                        <div id="time"></div>
+                        <div id="date"></div>
+                        <div class="press">
+                           <p>Press home to unlock</p>
+                           <div class="home">
+                              <span class="dot"></span>
+                              <span class=" whitedot dot"></span>
+                              <i class="fa fa-camera " aria-hidden="true"></i>
+                           </div>
+                        </div>
+						  <!-- ======================== START OF HOME BUTTON============================ -->
+                        <div id="header2" class="button">
+                           <div class="button2"></div>
+                        </div>
+						  <!-- ======================== START OF HOME BUTTON============================ -->
+                     </div>
+                  </div>
+                  <div class="extra"></div>
+               </div>
+               <!-- ========================END FRONT SCREEN ============================ -->
+            </div>
+            <div id="section2">
+               <!-- ======================== START OF APP ============================ -->
+               <div class="iphone">
+                  <div class="iphone-body">
+                     <div class="screen2">
+                        <div class="header">
+                           <div class="row">
+                              <div class="column">
+                                 <div class="circles">
+                                    <div class="square"></div>
+                                    <div class="square">&nbsp;</div>
+                                    <div class="square">&nbsp;</div>
+                                    <div class="square">&nbsp;</div>
+                                    <div class="square">&nbsp;</div>
+                                    <p class="network">O2-UK</p>
+									<!-- ======================== START OF WIFI ICON============================ -->
+                                    <svg class="wifi" viewBox="0 0 40 32">
+                                       <path d="M17.98 28.12c0-1.1.9-2.02 2.02-2.02s2.02.9 2.02 2.02-.9 2.02-2.02 2.02-2.02-.9-2.02-2.02" />
+                                       <path d="M20 18.02c3.34 0 6.37 1.36 8.57 3.55l-2.86 2.86c-1.45-1.46-3.47-2.37-5.7-2.37s-4.25.9-5.7 2.37l-2.87-2.86c2.2-2.2 5.23-3.55 8.57-3.55" />
+                                       <path d="M5.7 15.86c3.83-3.82 8.9-5.92 14.3-5.92s10.47 2.1 14.3 5.92l-2.87 2.85C28.38 15.67 24.33 14 20 14s-8.38 1.68-11.43 4.73L5.7 15.87" />
+                                       <path d="M31 4.08c3.38 1.43 6.4 3.47 9 6.06L37.14 13C32.56 8.42 26.48 5.9 20 5.9S7.44 8.42 2.86 13L0 10.14c2.6-2.6 5.62-4.63 9-6.06 3.48-1.47 7.18-2.22 11-2.22s7.52.74 11 2.22" />
+                                    </svg>
+									<!-- ======================== END OF WIFI ICON============================ -->
+                                 </div>
+                              </div>
+                              <div class="column"><span class="clock"></span></div>
+                              <div class="column">
+                                 <div class="icons">
+                                    <i class="fa fa-location-arrow"></i>
+                                    <i class="fa fa-bluetooth-b"></i>
+                                 </div>
+      			  <!-- ======================== START OF BATTERY ICON============================ -->
+                           <div class="fa-stack fa-1x battery battery-drain">
+  <i class="fa fa-stack-1x fa-battery-0"></i>
+  <i class="fa fa-stack-1x fa-battery-1"></i>
+  <i class="fa fa-stack-1x fa-battery-2"></i>
+  <i class="fa fa-stack-1x fa-battery-3"></i>
+  <i class="fa fa-stack-1x fa-battery-4"></i>
+</div>
+  <!-- ======================== END OF BATTERY ICON============================ -->
+                              </div>
+                           </div>
+                           <div class="row">
+						   	    <!-- ======================== START OF BACK BUTTON ============================ -->
+                              <div class="column1">
+                                 <div class="btn">
+                                    <i class=" hide fa fa-arrow-left" aria-hidden="true"></i>
+                                    <p class="back">Back</p>
+                                 </div>
+                              </div>
+							  	    <!-- ======================== END OF BACK BUTTON ============================ -->
+										    <!-- ======================== START OF APP TITLE ============================ -->
+                              <div class="column2">
+                                 <h1>Weather App</h1>
+                              </div>
+							  <!-- ======================== END OF APP TITLE ============================ -->
+							  <!-- ======================== START OF SEARCH BUTTON ============================ -->
+                              <div class="column1">
+                                 <div class="btn">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                 </div>
+                              </div>
+							  <!-- ======================== END OF BACK BUTTON ============================ -->
+                           </div>
+                        </div>
+						 <!-- ======================== START OF THE APP FORM ============================ -->
+                        <div class="form">
+                           <label id="search">Type in a City e.g Belfast and then press enter</label>
+                           <br>
+                           <input id="input" type="text" class="input">
+                        </div>
+						 <!-- ======================== END OF THE APP FORM ============================ -->
+						 <!-- ======================== START OF THE WEATHER APP DETAILS============================ -->
+                        <div class="section">
+                           <div id="weatherAnimation">
+                              <canvas id="animated-icon" width="128" height="128"></canvas>
+                           </div>
+                           <span id="weatherDescription"></span>
+                        </div>
+                        <div class="section">
+                           <div>
+                              <span id="temperature"></span>
+                              <span id="temperatureUnit"></span>
+                           </div>
+                           <p id="locationDisplay">
+                              <span id="city"></span><span id="country"></span>
+                           </p>
+                        </div>
+						 <!-- ========================END OF THE WEATHER APP DETAILS============================ -->
+                     </div>
+                  </div>
+				   <!-- ======================== START OF HOME BUTTON============================ -->
+                  <div class="hide button1">
+                     <div class="button3"></div>
+                  </div>
+				  <!-- ======================== END OF HOME BUTTON============================ -->
+               </div>
+               <div class="extra"></div>
+            </div>
+            <!-- ======================== END OF APP ============================ -->
+         </div>
+      </div>
+      <!-- ======================== All the Script files ============================ -->
+      <script src="scripts/script.js"></script>
+      <script src="scripts/skycons.js"></script>
+      <script src="scripts/jquery-3.3.1.min.js"></script>
+   </body>
+</html>

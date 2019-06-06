@@ -1,0 +1,613 @@
+body {
+     top: 0;
+     left: 0;
+     margin: 0;
+     background-color: #ecf0f1;
+     font-family: 'Open Sans', sans-serif;
+}
+ .container {
+     position: relative;
+     width: 316px;
+     margin: 0 auto;
+}
+/* This is for the weather app not to appear when the page is first loaded */
+ #section2 {
+     display:none;
+}
+ h1 {
+     font-weight: 100;
+     letter-spacing: 3px;
+     font-size: 1em;
+     text-align:center;
+     margin: 10px auto;
+     text-transform: uppercase;
+}
+ p{
+    text-align:center;
+     letter-spacing: 3px;
+}
+ .network{
+     font-size:8px;
+     letter-spacing: 1px;
+     float:left;
+     padding-top:1%;
+     margin-left:0.5em;
+     margin-top:-0.3em;
+     text-align:center;
+}
+ .column {
+     float: left;
+     width: 33.33%;
+     text-align: center;
+     margin-top: 5px;
+}
+ .column1 {
+     float: left;
+     width: 20%;
+     text-align: center;
+     margin-top: 5px;
+}
+ .column2 {
+     float: left;
+     width: 60%;
+     text-align: center;
+     margin-top: 5px;
+}
+/* Clear floats after the columns */
+ .row:after {
+     content: "";
+     display: table;
+     clear: both;
+}
+/*Canvas*/
+ #canvas {
+     position:fixed;
+}
+ .section {
+     width: 70%;
+     margin: 18px auto;
+     text-align:center;
+}
+ .iphone {
+     animation: appear 1.5s ease;
+}
+ .iphone-container {
+     position: relative;
+     height: 640px;
+     width: 316px;
+     margin-top: 40px;
+     animation: iphone-rise 1s ease-in-out;
+}
+ .iphone-body {
+     position: relative;
+     background: #fff;
+     height: 640px;
+     width: 316px;
+     border-radius: 30px;
+}
+ .extra {
+     position: absolute;
+     background: #D7DFE7;
+     height: 4px;
+     width: 40px;
+     border-radius: 4px;
+     top: 35px;
+     left: 138px;
+}
+ .svg-iphone {
+     position: absolute;
+     animation: disappear 2.5s ease forwards;
+}
+ .outline-one {
+     stroke-dasharray: 2000;
+     stroke-dashoffset: 2000;
+     animation: fill 2.2s linear forwards;
+}
+ .outline-two {
+     stroke-dasharray: 1580;
+     stroke-dashoffset: 1580;
+     animation: fill 2s linear forwards;
+}
+ .outline-line {
+     stroke-dasharray: 40;
+     stroke-dashoffset: 40;
+     animation: fill 1 .6s linear forwards;
+}
+ @-webkit-keyframes fill {
+     to {
+         stroke-dashoffset: 0;
+    }
+}
+ @-moz-keyframes fill {
+     to {
+         stroke-dashoffset: 0;
+    }
+}
+ @keyframes fill {
+     to {
+         stroke-dashoffset: 0;
+    }
+}
+ @-webkit-keyframes disappear {
+     0% {
+         opacity: 1;
+    }
+     66% {
+         opacity: 1;
+    }
+     100% {
+         opacity: 0;
+    }
+}
+ @-moz-keyframes disappear {
+     0% {
+         opacity: 1;
+    }
+     66% {
+         opacity: 1;
+    }
+     100% {
+         opacity: 0;
+    }
+}
+ @keyframes disappear {
+     0% {
+         opacity: 1;
+    }
+     66% {
+         opacity: 1;
+    }
+     100% {
+         opacity: 0;
+    }
+}
+ @-webkit-keyframes appear {
+     0% {
+         opacity: 0;
+    }
+     70% {
+         opacity: 0;
+    }
+     100% {
+         opacity: 1;
+    }
+}
+ @-moz-keyframes appear {
+     0% {
+         opacity: 0;
+    }
+     70% {
+         opacity: 0;
+    }
+     100% {
+         opacity: 1;
+    }
+}
+ @keyframes appear {
+     0% {
+         opacity: 0;
+    }
+     70% {
+         opacity: 0;
+    }
+     100% {
+         opacity: 1;
+    }
+}
+ @-webkit-keyframes iphone-rise {
+     0% {
+         top: 200px;
+    }
+     75% {
+         top: -10px;
+    }
+     100% {
+         top: 0;
+    }
+}
+ @-moz-keyframes iphone-rise {
+     0% {
+         top: 200px;
+    }
+     75% {
+         top: -10px;
+    }
+     100% {
+         top: 0;
+    }
+}
+ @keyframes iphone-rise {
+     0% {
+         top: 200px;
+    }
+     75% {
+         top: -10px;
+    }
+     100% {
+         top: 0;
+    }
+}
+ @-webkit-keyframes appear-full {
+     0% {
+         opacity: 0;
+         top: 400px;
+    }
+     100% {
+         opacity: 1;
+         top: 200px;
+    }
+}
+ @-moz-keyframes appear-full {
+     0% {
+         opacity: 0;
+         top: 400px;
+    }
+     100% {
+         opacity: 1;
+         top: 200px;
+    }
+}
+ @keyframes appear-full {
+     0% {
+         opacity: 0;
+         top: 400px;
+    }
+     100% {
+         opacity: 1;
+         top: 200px;
+    }
+}
+/*front and back of phone*/
+ #canvas {
+     position: absolute;
+     margin-top:70px;
+     margin-left:5%;
+     width:90%;
+     height:400px;
+     color:white;
+}
+ .screen {
+     background: #333;
+     position: absolute;
+     margin-top:70px;
+     margin-left:5%;
+     width:90%;
+     height:500px;
+     color:white;
+}
+ .screen2 {
+     background: #f6fbfc;
+     position: absolute;
+     margin-top:70px;
+     margin-left:5%;
+     width:90%;
+     height:500px;
+     color:white;
+}
+ #time {
+    margin-top:60px;
+     text-align:center;
+     font-size:50px;
+}
+ #date {
+     text-align:center;
+     font-size:14px;
+}
+ .press{
+     margin-top:90%;
+     font-size:12px;
+}
+ .home{
+    margin-left:44%;
+     margin-right:44%;
+}
+/*camera */
+ .fa-camera{
+     padding:2px ;
+     font-size:1px;
+     margin-top:2px;
+     color: #dbdbdb;
+}
+/* Header */
+ .header {
+     position: absolute;
+     margin-right:10%;
+     background: #FE5F55;
+     width:100%;
+     color:white;
+}
+/* Search */
+ .wrapper {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+}
+ .btn {
+     text-align: center;
+     width: 50px;
+     margin-top:15%;
+}
+ .btn .fa {
+     color: #FFFFFF;
+     font-size: 20px;
+     cursor: pointer;
+}
+ .btn .fa:hover{
+     opacity:0.70;
+}
+ .form {
+     width: 300px;
+     height: 100px;
+     padding: 0 20px;
+     box-sizing: border-box;
+}
+ .input {
+     width: 240px;
+     border: 0px;
+     background: transparent;
+     box-sizing: border-box;
+     border-bottom: 3px solid #FE5F55;
+     outline: none;
+     padding: 0 20px 10px;
+     color: #616161;
+     font-size: 20px;
+     transition: all 0.5s ease;
+     transform: scale(0);
+     margin-top:25%;
+}
+ #search {
+     color: #616161;
+     position: relative;
+     top: 94px;
+     opacity: 0;
+     letter-spacing: 1px;
+     transition: all 0.5s ease;
+     font-size: 11px;
+     left: 3px;
+}
+ #search.active {
+     opacity: 1;
+}
+ .input.active {
+     transform: scale(1);
+}
+ #search.move {
+     top: 146px;
+     left: 3px;
+     font-size: 11px;
+}
+/* Information on weather */
+ #temperatureUnit {
+     cursor: pointer;
+}
+ #temperature, #temperatureUnit {
+     font-size: 60px;
+     color:#616161;
+}
+ #city, #country {
+     font-size: 22px;
+     color:#616161;
+}
+ #animated-icon{
+     transition: all 5s ease;
+     margin-top:45px;
+}
+ #animated-icon:hover {
+     transform: scale(1.5);
+}
+ #weatherDescription {
+     letter-spacing: 3px;
+     color:#616161;
+}
+/* circles for the top and bottom of iphone */
+ .circles {
+     margin-left:4%;
+     margin-top:8%;
+}
+ .square {
+     width:3px;
+     height:3px;
+     display:block;
+     overflow:hidden;
+     float:left;
+     margin:1px;
+     padding:1px;
+     background-color: #FFFFFF;
+     border-radius: 50%;
+}
+ .linebreak{
+     clear:both;
+}
+
+ .dot {
+     height: 5px;
+     width: 5px;
+     background-color: #dbdbdb;
+     border-radius: 50%;
+     display: inline-block;
+}
+ .whitedot{
+    background-color: #ffffff;
+}
+/*battery*/
+.battery > [class*="fa-battery"] {
+	 animation: showhide 5s steps(1) infinite;
+	 opacity: 0;
+	 -webkit-perspective: 1000;
+	 -webkit-backface-visibility: hidden;
+	 display:block;
+	 margin-top:-5px;
+	
+}
+ 
+ .battery-drain > .fa-battery-4 {
+	 animation-delay: -5s;
+}
+ .battery-drain > .fa-battery-3 {
+	 animation-delay: -4s;
+}
+ .battery-drain > .fa-battery-2 {
+	 animation-delay: -3s;
+}
+ .battery-drain > .fa-battery-1 {
+	 animation-delay: -2s;
+}
+ .battery-drain > .fa-battery-0 {
+	 animation-delay: -1s;
+}
+ .battery-charge > .fa-battery-0 {
+	 animation-delay: -5s;
+}
+ .battery-charge > .fa-battery-1 {
+	 animation-delay: -4s;
+}
+ .battery-charge > .fa-battery-2 {
+	 animation-delay: -3s;
+}
+ .battery-charge > .fa-battery-3 {
+	 animation-delay: -2s;
+}
+ .battery-charge > .fa-battery-4 {
+	 animation-delay: -1s;
+}
+ .battery-charge > .fa-flash {
+	 animation: fadeinout 2s ease-in-out infinite;
+	 position: absolute;
+	 right: 0.4em;
+	 top: 0.5em;
+	 font-size: 0.5em;
+}
+ @keyframes showhide {
+	 0% {
+		 opacity: 1;
+	}
+	 20% {
+		 opacity: 0;
+	}
+}
+ @keyframes fadeinout {
+	 0% {
+		 opacity: 1;
+	}
+	 50% {
+		 opacity: 0;
+	}
+	 100% {
+		 opacity: 1;
+	}
+}
+/*Wifi*/
+ .wifi {
+     width: 14px;
+     height: 14px;
+     fill: #eee;
+     float: right;
+     margin-left:4%;
+     margin-top:-5px;
+}
+ @keyframes wave {
+     50% {
+         fill: #000;
+    }
+}
+ path {
+     animation: wave 1s infinite;
+}
+ path:nth-child(1) {
+     animation-delay: -0.4s;
+}
+ path:nth-child(2) {
+     animation-delay: -0.3s;
+}
+ path:nth-child(3) {
+     animation-delay: -0.2s;
+}
+ path:nth-child(4) {
+     animation-delay: -0.1s;
+}
+/*Bluetooth and location*/
+ .icons{
+     font-size:12px;
+     float:left;
+     margin-top:3.3%;
+}
+/*Lock */
+ .fa-lock{
+     margin-top:3.3%;
+}
+/*Back button*/
+ .back{
+     font-size:10px;
+     margin-top:1%;
+}
+/* Mini Clock*/
+ #clock{
+    font-size:14px;
+     margin-top:5%;
+}
+/*buttons for iphone*/
+/*button for front of iphone*/
+ .button{
+     margin-top:30px;
+     margin-left: 40%;
+     margin-right: 40%;
+     width:50px;
+     height:50px;
+     background-color:#f8f8ff ;
+     border:1px solid #c0c0c0;
+     -moz-border-radius:100%;
+     -khtml-border-radius:100%;
+     -webkit-border-radius:100%;
+     border-radius:100%;
+     position:relative;
+     cursor:pointer 
+}
+ .button2{
+     width:15px;
+     height:15px;
+     -moz-border-radius:30%;
+     -khtml-border-radius:30%;
+     -webkit-border-radius:30%;
+     border-radius:30%;
+     border:2px solid #c0c0c0;
+     position:absolute;
+     top:15px;
+     right:15px;
+     cursor:pointer 
+}
+ .button:hover{
+     opacity:0.70;
+}
+/*button for weather app of iphone*/
+ .button1{
+     margin-top:-60px;
+     margin-left: 40%;
+     margin-right: 40%;
+     width:50px;
+     height:50px;
+     background-color:#f8f8ff;
+     border:1px solid #c0c0c0;
+     -moz-border-radius:100%;
+     -khtml-border-radius:100%;
+     -webkit-border-radius:100%;
+     border-radius:100%;
+     position:relative;
+     cursor:pointer 
+}
+ .button3{
+     width:15px;
+     height:15px;
+     -moz-border-radius:30%;
+     -khtml-border-radius:30%;
+     -webkit-border-radius:30%;
+     border-radius:30%;
+     border:2px solid #c0c0c0;
+     position:absolute;
+     top:15px;
+     right:15px;
+     cursor:pointer 
+}
+ .button1:hover{
+     opacity:0.70;
+}
